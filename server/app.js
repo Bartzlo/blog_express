@@ -27,11 +27,11 @@ db.sequelize
 
     for (const key in db) {
       if (db.hasOwnProperty(key) && key !== 'sequelize' && key !== 'Sequelize') {
-        syncs.push(db[key].sync())
+        syncs.push(db[key].sync({ force: !!db[key].force }))
       }
     }
 
-    return Promise.all([db.User.sync(), db.Session.sync({force: true})])
+    return Promise.all(syncs)
   })
   .then(() => {
     console.log('DB connection has been established successfully.')

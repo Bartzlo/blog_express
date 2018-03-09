@@ -65,11 +65,11 @@ module.exports.init = function () {
   )
 
   passport.serializeUser(function (user, done) {
-    if (user) done(null, user.id)
+    if (user) done(null, user.user_id)
   })
 
   passport.deserializeUser(function (id, done) {
-    db.User.findOne({where: {id: id}})
+    db.User.findOne({where: {user_id: id}})
       .then(user => done(null, user))
       .catch(err => done(err, false))
   })
