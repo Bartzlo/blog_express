@@ -1,0 +1,52 @@
+include ../widget_panel/widget_panel.pug
+
+//- Require data:
+-
+  let data = {
+    moduleText: 'red',
+    firstWidget: [
+      {
+        view: 'w_mod1',
+        args: {
+          text: 'ad aw adfdfsxd f sd'
+        }
+      },
+      {
+        view: 'w_mod2',
+        args: {
+          text: 'jghj fdfg re4tgewe re df'
+        }
+      }
+    ],
+    secondWidget: [
+      {
+        view: 'w_mod2',
+        args: {
+          text: 'nmbzzx s zssg r gfg cv'
+        }
+      },
+      {
+        view: 'w_mod1',
+        args: {
+          text: 'opiou j ghyu i uioui jklj'
+        }
+      }
+    ]
+  }
+
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="blog_main_style.css")
+  body(class='staticPage', data-script-src='/staticPage.js')
+    h1 Static page
+    include ../module1/module1.pug
+    p Continue of the static page...
+    include ../module1/module1.pug
+    include ../module2/module2.pug
+
+    +widget_panel('Firts widget panel', data.firstWidget)
+    +widget_panel('Second widget panel', data.secondWidget)
+
+    script(src='blog_commons.js')
