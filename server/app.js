@@ -22,17 +22,12 @@ require('./lib/initPassport').init()
 
 db.sequelize
   .authenticate()
-  .then(() => {
-    let syncs = []
-
-    for (const key in db) {
-      if (db.hasOwnProperty(key) && key !== 'sequelize' && key !== 'Sequelize') {
-        syncs.push(db[key].sync({ force: !!db[key].force }))
-      }
-    }
-
-    return Promise.all(syncs)
-  })
+  .then(() => db.Session.sync({ force: true }))
+  .then(() => db.Img.sync())
+  .then(() => db.User.sync())
+  .then(() => db.Category.sync())
+  .then(() => db.Material.sync())
+  .then(() => { db.Banner.sync() })
   .then(() => {
     console.log('DB connection has been established successfully.')
   })

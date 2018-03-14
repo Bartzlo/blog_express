@@ -8,8 +8,5 @@ module.exports = function (sequelize, DataTypes) {
     data: DataTypes.TEXT
   })
 
-  // forsed sync opt
-  Session.force = true
-
   return Session
 }
