@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'page_id',
       constraints: false,
       scope: {
-        table: 'material'
+        page_table: 'material'
       }
     })
   }

@@ -17,14 +17,14 @@ module.exports = function (sequelize, DataTypes) {
   })
 
   Category.associate = (models) => {
-    Category.belongsTo(models.Img, {foreignKey: 'header_img_id'})
-    Category.belongsTo(models.Img, {foreignKey: 'previwe_img_id'})
+    Category.belongsTo(models.Img, {as: 'header_img', foreignKey: 'header_img_id'})
+    Category.belongsTo(models.Img, {as: 'previwe_img', foreignKey: 'previwe_img_id'})
 
     Category.hasMany(models.Banner, {
       foreignKey: 'page_id',
       constraints: false,
       scope: {
-        table: 'category'
+        page_table: 'category'
       }
     })
   }

@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
   })
 
   Banner.prototype.getItem = function (options) {
-    return this['get' + this.get('table').substr(0, 1).toUpperCase() + this.get('commentable').substr(1)](options)
+    return this['get' + this.get('page_table').substr(0, 1).toUpperCase() + this.get('page_table').substr(1)](options)
   }
 
   Banner.associate = (models) => {
