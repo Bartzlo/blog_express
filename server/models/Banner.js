@@ -17,14 +17,6 @@ module.exports = function (sequelize, DataTypes) {
 
   Banner.associate = (models) => {
     Banner.belongsTo(models.Img, {foreignKey: 'img_id'})
-
-    Banner.hasMany(models.Widget, {
-      foreignKey: 'concrete_widget_id',
-      constraints: false,
-      scope: {
-        widget_table: 'banner'
-      }
-    })
   }
 
   return Banner

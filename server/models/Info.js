@@ -14,13 +14,6 @@ module.exports = function (sequelize, DataTypes) {
   }
 
   Info.associate = (models) => {
-    Info.hasMany(models.Widget, {
-      foreignKey: 'concrete_widget_id',
-      constraints: false,
-      scope: {
-        widget_table: 'info'
-      }
-    })
   }
 
   return Info

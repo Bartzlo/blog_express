@@ -16,25 +16,13 @@ module.exports = function (sequelize, DataTypes) {
   }
 
   Widget.associate = (models) => {
-    Widget.belongsTo(models.Category, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'category'
-    })
-
-    Widget.belongsTo(models.Material, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'material'
-    })
-
     Widget.belongsTo(models.Banner, {
       foreignKey: 'concrete_widget_id',
       constraints: false,
       as: 'banner'
     })
 
-    Widget.belongsTo(models.Banner, {
+    Widget.belongsTo(models.Info, {
       foreignKey: 'concrete_widget_id',
       constraints: false,
       as: 'info'

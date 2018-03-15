@@ -90,6 +90,23 @@ VALUES
 1,
 2);
 
+INSERT INTO `blog`.`categories`
+(`category_id`,
+`name`,
+`title`,
+`discription`,
+`content`,
+`header_img_id`,
+`previwe_img_id`)
+VALUES
+(2,
+'music',
+'Music',
+'Discription music category',
+'',
+1,
+2);
+
 INSERT INTO `blog`.`materials`
 (`material_id`,
 `name`,
