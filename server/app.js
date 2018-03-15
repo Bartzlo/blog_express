@@ -27,7 +27,18 @@ db.sequelize
   .then(() => db.User.sync())
   .then(() => db.Category.sync())
   .then(() => db.Material.sync())
-  .then(() => { db.Banner.sync() })
+  .then(() => { db.Widget_banner.sync() })
+  .then(() => { db.Widget_info.sync() })
+
+  .then(() => {
+    return db.Category.findOne({
+      include: [ { all: true, nested: true } ]
+    })
+  })
+  .then(result => {
+    console.log('time')
+  })
+
   .then(() => {
     console.log('DB connection has been established successfully.')
   })

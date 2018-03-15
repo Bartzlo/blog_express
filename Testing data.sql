@@ -1,3 +1,10 @@
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE `blog`.`materials`;
+TRUNCATE TABLE `blog`.`categories`;
+TRUNCATE TABLE `blog`.`widget_banners`;
+TRUNCATE TABLE `blog`.`imgs`;
+SET FOREIGN_KEY_CHECKS = 1;
+
 INSERT INTO `blog`.`imgs`
 (`img_id`,
 `name`,
@@ -88,8 +95,7 @@ INSERT INTO `blog`.`materials`
 `discription`,
 `content`,
 `img_id`,
-`category_id`,
-`user_id`)
+`category_id`)
 VALUES
 (2,
 'snowboard_tricks',
@@ -97,10 +103,9 @@ VALUES
 'Last week we posted a set of butter tutorials from Ryan Knapton, who may well be the snowboard equivalent of a ghost gliding serenely over the hill.',
 '',
 6,
-1,
 1);
 
-INSERT INTO `blog`.`banners`
+INSERT INTO `blog`.`widget_banners`
 (`banner_id`,
 `slot`,
 `url`,
@@ -117,7 +122,7 @@ VALUES
 'category',
 1);
 
-INSERT INTO `blog`.`banners`
+INSERT INTO `blog`.`widget_banners`
 (`banner_id`,
 `slot`,
 `url`,
@@ -134,7 +139,7 @@ VALUES
 'category',
 1);
 
-INSERT INTO `blog`.`banners`
+INSERT INTO `blog`.`widget_banners`
 (`banner_id`,
 `slot`,
 `url`,
@@ -151,3 +156,28 @@ VALUES
 'material',
 2);
 
+INSERT INTO `blog`.`widget_infos`
+(`info_id`,
+`slot`,
+`text`,
+`page_table`,
+`page_id`)
+VALUES
+(3,
+2,
+'Text info',
+'category',
+1);
+
+INSERT INTO `blog`.`widget_infos`
+(`info_id`,
+`slot`,
+`text`,
+`page_table`,
+`page_id`)
+VALUES
+(4,
+3,
+'Text info 2',
+'material',
+2);

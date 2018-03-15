@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Banner = sequelize.define('Banner', {
+  const Widget_banner = sequelize.define('Widget_banner', { // eslint-disable-line
     banner_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -13,25 +13,25 @@ module.exports = function (sequelize, DataTypes) {
     page_id: DataTypes.INTEGER
   })
 
-  Banner.prototype.getItem = function (options) {
+  Widget_banner.prototype.getItem = function (options) {
     return this['get' + this.get('page_table').substr(0, 1).toUpperCase() + this.get('page_table').substr(1)](options)
   }
 
-  Banner.associate = (models) => {
-    Banner.belongsTo(models.Img, {foreignKey: 'img_id'})
+  Widget_banner.associate = (models) => {
+    Widget_banner.belongsTo(models.Img, {foreignKey: 'img_id'})
 
-    Banner.belongsTo(models.Category, {
+    Widget_banner.belongsTo(models.Category, {
       foreignKey: 'page_id',
       constraints: false,
       as: 'category'
     })
 
-    Banner.belongsTo(models.Material, {
+    Widget_banner.belongsTo(models.Material, {
       foreignKey: 'page_id',
       constraints: false,
       as: 'material'
     })
   }
 
-  return Banner
+  return Widget_banner // eslint-disable-line
 }

@@ -22,7 +22,15 @@ module.exports = function (sequelize, DataTypes) {
     Material.belongsTo(models.Category, {foreignKey: 'category_id'})
     Material.belongsTo(models.User, {foreignKey: 'user_id', as: 'author'})
 
-    Material.hasMany(models.Banner, {
+    Material.hasMany(models.Widget_banner, {
+      foreignKey: 'page_id',
+      constraints: false,
+      scope: {
+        page_table: 'material'
+      }
+    })
+
+    Material.hasMany(models.Widget_info, {
       foreignKey: 'page_id',
       constraints: false,
       scope: {
