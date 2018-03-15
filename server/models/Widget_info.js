@@ -15,19 +15,5 @@ module.exports = function (sequelize, DataTypes) {
     return this['get' + this.get('page_table').substr(0, 1).toUpperCase() + this.get('page_table').substr(1)](options)
   }
 
-  Widget_info.associate = (models) => {
-    Widget_info.belongsTo(models.Category, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'category'
-    })
-
-    Widget_info.belongsTo(models.Material, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'material'
-    })
-  }
-
   return Widget_info // eslint-disable-line
 }

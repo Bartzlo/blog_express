@@ -19,18 +19,6 @@ module.exports = function (sequelize, DataTypes) {
 
   Widget_banner.associate = (models) => {
     Widget_banner.belongsTo(models.Img, {foreignKey: 'img_id'})
-
-    Widget_banner.belongsTo(models.Category, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'category'
-    })
-
-    Widget_banner.belongsTo(models.Material, {
-      foreignKey: 'page_id',
-      constraints: false,
-      as: 'material'
-    })
   }
 
   return Widget_banner // eslint-disable-line

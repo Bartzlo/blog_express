@@ -2,6 +2,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `blog`.`materials`;
 TRUNCATE TABLE `blog`.`categories`;
 TRUNCATE TABLE `blog`.`widget_banners`;
+TRUNCATE TABLE `blog`.`widget_infos`;
 TRUNCATE TABLE `blog`.`imgs`;
 SET FOREIGN_KEY_CHECKS = 1;
 
