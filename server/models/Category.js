@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
     Category.belongsTo(models.Img, {as: 'header_img', foreignKey: 'header_img_id'})
     Category.belongsTo(models.Img, {as: 'previwe_img', foreignKey: 'previwe_img_id'})
 
-    Category.hasMany(models.Banner, {
+    Category.hasMany(models.Widget, {
       foreignKey: 'page_id',
       constraints: false,
       scope: {

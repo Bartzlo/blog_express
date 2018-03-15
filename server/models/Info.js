@@ -1,31 +1,27 @@
 module.exports = function (sequelize, DataTypes) {
-  const Banner = sequelize.define('Banner', {
-    banner_id: {
+  const Info = sequelize.define('Info', {
+    info_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     slot: DataTypes.INTEGER,
-    url: DataTypes.STRING,
     text: DataTypes.TEXT('tiny'),
-    img_id: DataTypes.INTEGER
   })
 
-  Banner.prototype.getItem = function (options) {
+  Info.prototype.getItem = function (options) {
     return this['get' + this.get('page_table').substr(0, 1).toUpperCase() + this.get('page_table').substr(1)](options)
   }
 
-  Banner.associate = (models) => {
-    Banner.belongsTo(models.Img, {foreignKey: 'img_id'})
-
-    Banner.hasMany(models.Widget, {
+  Info.associate = (models) => {
+    Info.hasMany(models.Widget, {
       foreignKey: 'concrete_widget_id',
       constraints: false,
       scope: {
-        widget_table: 'banner'
+        widget_table: 'info'
       }
     })
   }
 
-  return Banner
+  return Info
 }

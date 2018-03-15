@@ -1,3 +1,12 @@
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE `blog`.`materials`;
+TRUNCATE TABLE `blog`.`categories`;
+TRUNCATE TABLE `blog`.`banners`;
+TRUNCATE TABLE `blog`.`imgs`;
+TRUNCATE TABLE `blog`.`infos`;
+TRUNCATE TABLE `blog`.`widgets`;
+SET FOREIGN_KEY_CHECKS = 1;
+
 INSERT INTO `blog`.`imgs`
 (`img_id`,
 `name`,
@@ -88,8 +97,7 @@ INSERT INTO `blog`.`materials`
 `discription`,
 `content`,
 `img_id`,
-`category_id`,
-`user_id`)
+`category_id`)
 VALUES
 (2,
 'snowboard_tricks',
@@ -97,7 +105,6 @@ VALUES
 'Last week we posted a set of butter tutorials from Ryan Knapton, who may well be the snowboard equivalent of a ghost gliding serenely over the hill.',
 '',
 6,
-1,
 1);
 
 INSERT INTO `blog`.`banners`
@@ -105,49 +112,107 @@ INSERT INTO `blog`.`banners`
 `slot`,
 `url`,
 `text`,
-`img_id`,
-`page_table`,
-`page_id`)
+`img_id`)
 VALUES
 (1,
 1,
 'http://qweasd.ru',
 'Click me',
-3,
-'category',
-1);
+3);
 
 INSERT INTO `blog`.`banners`
 (`banner_id`,
 `slot`,
 `url`,
 `text`,
-`img_id`,
-`page_table`,
-`page_id`)
+`img_id`)
 VALUES
 (2,
 1,
 'http://asdfds.com',
 'Click me fast',
-4,
-'category',
-1);
+4);
 
 INSERT INTO `blog`.`banners`
 (`banner_id`,
 `slot`,
 `url`,
 `text`,
-`img_id`,
-`page_table`,
-`page_id`)
+`img_id`)
 VALUES
 (3,
 1,
 'http://zxcfgd.info',
 'Click me please',
-5,
+5);
+
+INSERT INTO `blog`.`infos`
+(`info_id`,
+`slot`,
+`text`)
+VALUES
+(1,
+1,
+'Very important info');
+
+INSERT INTO `blog`.`infos`
+(`info_id`,
+`slot`,
+`text`)
+VALUES
+(2,
+2,
+'Borring info');
+
+INSERT INTO `blog`.`widgets`
+(`widget_id`,
+`page_table`,
+`page_id`,
+`widget_table`,
+`concrete_widget_id`)
+VALUES
+(1,
+'category',
+1,
+'banner',
+1);
+
+INSERT INTO `blog`.`widgets`
+(`widget_id`,
+`page_table`,
+`page_id`,
+`widget_table`,
+`concrete_widget_id`)
+VALUES
+(2,
 'material',
+2,
+'banner',
+2);
+
+INSERT INTO `blog`.`widgets`
+(`widget_id`,
+`page_table`,
+`page_id`,
+`widget_table`,
+`concrete_widget_id`)
+VALUES
+(3,
+'material',
+2,
+'info',
+1);
+
+INSERT INTO `blog`.`widgets`
+(`widget_id`,
+`page_table`,
+`page_id`,
+`widget_table`,
+`concrete_widget_id`)
+VALUES
+(4,
+'material',
+2,
+'info',
 2);
 
