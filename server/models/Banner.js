@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   const Banner = sequelize.define('Banner', {
-    banner_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true

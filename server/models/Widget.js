@@ -11,22 +11,13 @@ module.exports = function (sequelize, DataTypes) {
     concrete_widget_id: DataTypes.INTEGER
   })
 
-  Widget.prototype.getItem = function (options) {
-    return this['get' + this.get('page_table').substr(0, 1).toUpperCase() + this.get('page_table').substr(1)](options)
-  }
-
   Widget.associate = (models) => {
-    Widget.belongsTo(models.Banner, {
-      foreignKey: 'concrete_widget_id',
-      constraints: false,
-      as: 'banner'
-    })
-
-    Widget.belongsTo(models.Info, {
-      foreignKey: 'concrete_widget_id',
-      constraints: false,
-      as: 'info'
-    })
+    Widget.prototype.getConcreteWidget = function () {
+      return models[this.widget_table.substr(0, 1).toUpperCase() + this.widget_table.substr(1)]
+        .findOne({
+          where: { id: this.concrete_widget_id }
+        })
+    }
   }
 
   return Widget

@@ -32,9 +32,13 @@ db.sequelize
   .then(() => db.Widget.sync())
 
   .then(() => {
-    return db.Material.findOne({
-      include: [ { all: true, nested: true } ]
+    return db.Widget.findOne({
+      include: [ { all: true, nested: true, associations: true } ]
     })
+  })
+  .then((result) => {
+    console.log('object')
+    result.getConcreteWidget()
   })
   .then((result) => {
     console.log('object')
