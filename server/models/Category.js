@@ -21,12 +21,15 @@ module.exports = function (sequelize, DataTypes) {
     Category.belongsTo(models.Img, {as: 'previwe_img', foreignKey: 'previwe_img_id'})
 
     Category.hasMany(models.Widget, {
+      as: 'widgets',
       foreignKey: 'page_id',
       constraints: false,
       scope: {
         page_table: 'category'
       }
     })
+
+    Category.prototype.getWidgets = require('../lib/getWidgets')
   }
 
   return Category

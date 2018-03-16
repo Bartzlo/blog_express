@@ -23,12 +23,15 @@ module.exports = function (sequelize, DataTypes) {
     Material.belongsTo(models.User, {foreignKey: 'user_id', as: 'author'})
 
     Material.hasMany(models.Widget, {
+      as: 'widgets',
       foreignKey: 'page_id',
       constraints: false,
       scope: {
         page_table: 'material'
       }
     })
+
+    Material.prototype.getWidgets =  require('../lib/getWidgets')
   }
 
   return Material
