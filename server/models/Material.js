@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     })
 
-    Material.prototype.getWidgets =  require('../lib/getWidgets')
+    Material.prototype.getWidgets = require('../lib/getWidgets')
   }
 
   return Material
