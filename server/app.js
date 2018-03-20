@@ -30,20 +30,6 @@ db.sequelize
   .then(() => db.Banner.sync())
   .then(() => db.Info.sync())
   .then(() => db.Widget.sync())
-
-  .then(() => {
-    return db.Category.findOne({
-      include: [ { all: true, nested: true, associations: true } ]
-    })
-  })
-  .then((result) => {
-    console.log('object')
-    return result.getWidgets()
-  })
-  .then((result) => {
-    console.log('object')
-  })
-
   .then(() => {
     console.log('DB connection has been established successfully.')
   })

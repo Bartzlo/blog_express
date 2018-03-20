@@ -29,6 +29,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     })
 
+    Category.hasMany(models.Material, {
+      as: 'materials',
+      foreignKey: 'category_id'
+    })
+
     Category.prototype.getWidgets = require('../lib/getWidgets')
   }
 

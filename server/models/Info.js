@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true
     },
     slot: DataTypes.INTEGER,
-    text: DataTypes.TEXT('tiny'),
+    text: DataTypes.TEXT('tiny')
   })
 
   Info.prototype.getItem = function (options) {

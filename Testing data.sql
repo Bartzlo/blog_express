@@ -125,7 +125,7 @@ VALUES
 1);
 
 INSERT INTO `blog`.`banners`
-(`banner_id`,
+(`id`,
 `slot`,
 `url`,
 `text`,
@@ -138,7 +138,7 @@ VALUES
 3);
 
 INSERT INTO `blog`.`banners`
-(`banner_id`,
+(`id`,
 `slot`,
 `url`,
 `text`,
@@ -151,7 +151,7 @@ VALUES
 4);
 
 INSERT INTO `blog`.`banners`
-(`banner_id`,
+(`id`,
 `slot`,
 `url`,
 `text`,
@@ -164,7 +164,7 @@ VALUES
 5);
 
 INSERT INTO `blog`.`infos`
-(`info_id`,
+(`id`,
 `slot`,
 `text`)
 VALUES
@@ -173,7 +173,7 @@ VALUES
 'Very important info');
 
 INSERT INTO `blog`.`infos`
-(`info_id`,
+(`id`,
 `slot`,
 `text`)
 VALUES
