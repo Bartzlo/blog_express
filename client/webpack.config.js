@@ -84,9 +84,9 @@ module.exports = {
         options: {
           name (file) {
             if (process.env.DEV) {
-              return '[name].[ext]'
+              return 'img/[name].[ext]'
             }
-            return '[hash].[ext]'
+            return 'img/[hash].[ext]'
           }
         }
       }
@@ -101,7 +101,7 @@ module.exports = {
     new webpack.DefinePlugin({
       DEV: JSON.stringify(process.env.DEV)
     }),
-    new CleanWebpackPlugin(['build'], {exclude: ['favicon.ico']}),
+    new CleanWebpackPlugin(['build'], {exclude: ['favicon.ico', 'static_img']}),
     new UglifyJsPlugin({test: process.env.DEV ? /\.disabled/ : /\.js$/}),
     new webpack.ProvidePlugin({
       React: process.env.DEV ? 'react/umd/react.development.js' : 'react/umd/react.production.min.js',

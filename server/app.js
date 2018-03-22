@@ -30,6 +30,7 @@ db.sequelize
   .then(() => db.Banner.sync())
   .then(() => db.Info.sync())
   .then(() => db.Widget.sync())
+  .then(() => require('./lib/insertDemoData')())
   .then(() => {
     console.log('DB connection has been established successfully.')
   })
