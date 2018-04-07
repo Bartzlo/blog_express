@@ -30,7 +30,7 @@ db.sequelize
   .then(() => db.Banner.sync())
   .then(() => db.Info.sync())
   .then(() => db.Widget.sync())
-  .then(() => require('./lib/insertDemoData')())
+  // .then(() => require('./lib/insertDemoData')())
   .then(() => {
     console.log('DB connection has been established successfully.')
   })
@@ -42,7 +42,7 @@ db.sequelize
  * Viwes engine setup
  */
 
-app.set('views', path.join(__dirname, '../client/src/view'))
+app.set('views', path.join(__dirname, '../client/src/static/'))
 app.set('view engine', 'pug')
 
 /**
@@ -68,7 +68,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(favicon(path.join(__dirname, '../client/build', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, '../client/build/img', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, '../client/build')))
 
 /**
@@ -76,11 +76,11 @@ app.use(express.static(path.join(__dirname, '../client/build')))
  */
 
 app.use('/test', function (req, res, next) {
-  res.render(path.join(__dirname, '../client/src/view/blog/staticPage/staticPage.pug'), { title: 'My test' })
+  res.render(path.join(__dirname, '../client/src/static/blog/pages/ExamplePage/ExamplePage.pug'), { title: 'My test' })
 })
 app.use('/api', require('./routes/api'))
 app.use('/*', function (req, res) {
-  res.render(path.join(__dirname, '../client/src/view/auth/index.pug'))
+  res.render(path.join(__dirname, '../client/src/react/auth/auth.pug'))
 })
 
 /**
