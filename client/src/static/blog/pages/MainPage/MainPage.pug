@@ -1,0 +1,105 @@
+include ../../components/CategoryMenu/CategoryMenu.pug
+include ../../components/MainFooter/MainFooter.pug
+include ../../components/MainHeader/MainHeader.pug
+include ../../components/MainMenu/MainMenu.pug
+include ../../components/WidgetsPanel/WidgetsPanel.pug
+
+//- Require data:
+
+//- data = {
+//-   headerData: {
+//-     headerImg: 'url',
+//-     currentCategoryName: 'category name'
+//-   },
+//-   mainMenuData: {
+//-     siteUrl: 'http://name.com/'
+//-   },
+//-   categoryMenuData: {
+//-     siteUrl: 'http://name.com/',
+//-     items: [
+//-       {
+//-         name: 'Categ name',
+//-         url: 'Categ url/'
+//-       }
+//-     ]
+//-   },
+//-   mainPageWidgets: {
+//-     items: [
+//-       {
+//-         view: 'mixin name (banner)',
+//-         data: {
+//-           text: 'widget text',
+//-           url: 'banner url',
+//-           img: 'img url'
+//-         }
+//-       }
+//-     ]
+//-   }
+//- }
+
+//- Example data:
+
+-
+  data = {
+    headerData: {
+      headerImg: 'img/mainHeaderImg.jpg',
+      currentCategoryName: 'About anything'
+    },
+    mainMenuData: {
+      siteUrl: 'http://localhost:3000/'
+    },
+    categoryMenuData: {
+      siteUrl: 'http://localhost:3000/',
+      items: [
+        {
+          name: 'Sport',
+          url: 'sport'
+        },
+        {
+          name: 'Travel',
+          url: 'travel'
+        },
+        {
+          name: 'Programing',
+          url: 'programing'
+        }
+      ]
+    },
+    mainPageWidgets: {
+      items: [
+        {
+          view: 'Banner',
+          data: {
+            text: 'Bicycle selling',
+            url: 'http://google.com',
+            img: 'img/banners/example.png'
+          }
+        },
+        {
+          view: 'Banner',
+          data: {
+            text: 'Snowboard selling',
+            url: 'http://ya.ru',
+            img: 'img/banners/example.png'
+          }
+        }
+      ]
+    }
+  }
+
+doctype html
+html
+  head
+    title Blog
+    link(rel="stylesheet", href="/MainPage.css")
+    //- TODO: add meta
+  body
+    +MainHeader(data.headerData)
+    +MainMenu(data.mainMenuData)
+    .wrapper
+      main
+        p Main content
+      aside
+        +CategoryMenu(data.categoryMenuData)
+        +WidgetsPanel(data.mainPageWidgets)
+    +MainFooter()

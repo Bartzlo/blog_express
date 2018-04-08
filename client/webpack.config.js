@@ -16,6 +16,7 @@ const path = require('path')
 module.exports = {
   entry: {
     // Blog section
+    MainPage: './src/static/blog/pages/MainPage/MainPage.js',
     ExamplePage: './src/static/blog/pages/ExamplePage/ExamplePage.js',
 
     // Auth section

@@ -1,0 +1,18 @@
+//- Require data:
+
+//- mainMenuData: {
+//-   siteUrl: 'http://name.com/'
+//- }
+
+mixin MainMenu(mainMenuData)
+  nam.main-menu
+    ul.main-menu__list
+      li.main-menu__item
+        a(href = mainMenuData.siteUrl) Home
+      li.main-menu__item
+        a(href = mainMenuData.siteUrl + 'categories') Categoryes
+      li.main-menu__item
+        a(href = mainMenuData.siteUrl + 'materials') Materials
+      li.main-menu__item
+        a(href = mainMenuData.siteUrl + 'about') About
+

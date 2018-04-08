@@ -1,0 +1,14 @@
+//- Require data:
+
+//- headerData: {
+//-   headerImg: 'url',
+//-   currentCategoryName: 'category name'
+//- }
+
+mixin MainHeader(headerData)
+  header.main-header
+    div(class='main-header__background main-header__background_big-screen')
+      img(src=headerData.headerImg, alt="Background img")
+    .main-header__logo
+      p.main-header__name BLOG
+      p.main-header__discription #{headerData.currentCategoryName}

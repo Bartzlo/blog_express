@@ -1,0 +1,22 @@
+include ./widgets/Banner/Banner.pug
+include ./widgets/Info/Info.pug
+
+//- Require data:
+
+//- widgets = {
+//-   items: [
+//-     {
+//-       view: 'mixin name (banner)',
+//-       data: {
+//-         text: 'widget text',
+//-         url: 'banner url',
+//-         img: 'img url'
+//-       }
+//-     }
+//-   ]
+//- }
+
+mixin WidgetsPanel(widgets)
+  .widgets-panel
+    each widget in widgets.items
+      +#{widget.view}(widget.data)

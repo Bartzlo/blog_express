@@ -1,0 +1,18 @@
+//- Require data:
+
+//- categoryMenuData = {
+//-   siteUrl: 'http://name.com/',
+//-   items: [
+//-     {
+//-       name: 'Categ name',
+//-       url: 'Categ url'
+//-     }
+//-   ]
+//- }
+
+mixin CategoryMenu(categoryMenuData)
+  nav.category-menu
+    ul.category-menu__list
+      each item in categoryMenuData.items
+        li.category-menu__item
+          a(href=categoryMenuData.siteUrl + item.url) #{item.name}

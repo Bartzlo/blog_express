@@ -1,0 +1,13 @@
+//- Require data:
+
+//- data = {
+//-   text: 'widget text',
+//-   url: 'banner url',
+//-   img: 'img url'
+//- }
+
+mixin Banner(data)
+  div(class='widget bunner')
+    a(href=data.url)
+      img(src=data.img, alt="banner img")
+      p #{data.text}

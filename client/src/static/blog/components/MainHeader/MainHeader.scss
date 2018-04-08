@@ -1,0 +1,25 @@
+@media (min-width: 630px) {
+  .main-header__background {
+    height: 100px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .main-header__background {
+    height: 100px;
+    overflow: hidden;
+    img {
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: relative;
+    }
+  }
+}
