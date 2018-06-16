@@ -23,6 +23,6 @@ OAUTH_CALLBACK_URL=http://127.0.0.1:3000/api/auth/google/callback (for example, 
 SESSION_SECRET=qweqwe (for example)
 
 ## Starting
-- start your mongo server
+- start your mysql server
 - npm run start (in server dir, or *npm run dev* for development)
 - webpack (in client dir)
